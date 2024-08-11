@@ -14,7 +14,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("https://cdn.discordapp.com/attachments/687190013640966155/1271615801459474503/image.png?ex=66b7fc00&is=66b6aa80&hm=0f17f8a65e035bfcaf93839c3721e814d156aaf0c1ec20e51ea538a99fb95c8e&") center/cover no-repeat;
+    background: url("./images/bg.png") center/cover no-repeat;
 }
 
 /* The rest of your CSS follows */
