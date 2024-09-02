@@ -1,22 +1,23 @@
 @font-face {
-    font-family: 'Library3amsoft'; /* Name your font */
-    src: url('fonts/BOSTON-CAPS.ttf') format('opentype'); /* Ensure the path is correct */
+    font-family: 'Library3amsoft';
+   /* Name your font */
+    src: url('fonts/BOSTON-CAPS.ttf') format('opentype');
+   /* Ensure the path is correct */
     font-weight: normal;
     font-style: normal;
 }
-
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Library3amsoft'; /* Apply your custom font */
+    font-family: 'Library3amsoft';
+   /* Apply your custom font */
     display: flex;
     justify-content: center;
     align-items: center;
     background: url("./images/bg.png") center/cover no-repeat;
 }
-
 /* The rest of your CSS follows */
 .card {
     background: rgba(0, 0, 0, 0.7);
@@ -28,44 +29,40 @@ body, html {
     color: white;
     width: 350px;
 }
-
 .profile-picture img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-bottom: 15px;
 }
-
 h1, p {
     margin: 10px 0;
-    font-family: 'Library3amsoft', Arial, sans-serif; /* Ensure your custom font is applied */
+    font-family: 'Library3amsoft', Arial, sans-serif;
+   /* Ensure your custom font is applied */
 }
-
 h1 {
     font-size: 46px;
 }
-
 p {
     font-size: 16px;
 }
-
+.renderImg{
+    display: flex;
+}
 .social-links {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
-
 .social-links a {
     display: inline-block;
 }
-
 .social-links img {
     width: 40px;
     height: 40px;
     border-radius: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .social-links img:hover {
     transform: scale(1.1);
 }
