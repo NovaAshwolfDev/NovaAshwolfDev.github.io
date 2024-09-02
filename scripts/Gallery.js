@@ -84,7 +84,7 @@ function checkImageExists(src, callback) {
 // Function to update image based on index
 function updateImage() {
   let imagePath;
-  const possibleExtensions = [".png", ".gif", ".webp"]; // List of supported extensions
+  const possibleExtensions = [".png"]; // List of supported extensions
   const currentExtension =
     possibleExtensions[Math.floor(Math.random() * possibleExtensions.length)];
 
