@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Library3amsoft'; /* Name your font */
-    src: url('fonts/BOSTON-CAPS.ttf') format('opentype'); /* Ensure the path is correct */
+    font-family: 'Library3amsoft';
+    src: url('fonts/Boston.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -10,14 +10,14 @@ body, html {
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Library3amsoft'; /* Apply your custom font */
+    font-family: 'Library3amsoft', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("/images/bg.png") center/cover no-repeat;
+    background: url('/images/Backgrounds/Background1.png') center/cover no-repeat;
 }
 
-/* The rest of your CSS follows */
+/* Card Styles */
 .card {
     background: rgba(0, 0, 0, 0.7);
     padding: 20px;
@@ -29,6 +29,7 @@ body, html {
     width: 350px;
 }
 
+/* Profile Picture Styles */
 .profile-picture img {
     width: 100px;
     height: 100px;
@@ -36,19 +37,18 @@ body, html {
     margin-bottom: 15px;
 }
 
-h1, p {
-    margin: 10px 0;
-    font-family: 'Library3amsoft', Arial, sans-serif; /* Ensure your custom font is applied */
-}
-
+/* Text Styles */
 h1 {
+    margin: 10px 0;
     font-size: 46px;
 }
 
 p {
+    margin: 10px 0;
     font-size: 16px;
 }
 
+/* Social Links Styles */
 .social-links {
     display: flex;
     justify-content: center;
@@ -68,4 +68,5 @@ p {
 
 .social-links img:hover {
     transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }

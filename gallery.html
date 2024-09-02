@@ -3,24 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova's Profile Card</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Nova's Gallery</title>
+    <link rel="stylesheet" href="styles/gallery_style.css">
 </head>
 <body>
-    <div class="background">
-        <div class="card">
-            <div class="profile-picture">
-                <img src="./images/profile.png" alt="Profile Picture">
-            </div>
-            <h1>My Gallery</h1>
-            <p>Here's where i host my Images</p>
-            <div class="gallery">
-                <a href="https://x.com/NovaTheFurry_" target="_blank"><img src="https://freelogopng.com/images/all_img/1690643640twitter-x-icon-png.png" alt="Twitter"></a>
-                <a href="https://github.com/NovaTheFurryDev" target="_blank"><img src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/3271892/github-icon-md.png" alt="GitHub"></a>
-                <a href="https://www.youtube.com/@_NovaTheFurry" target="_blank"><img src="https://www.vectorico.com/wp-content/uploads/2018/02/youtube-dark-circle.png" alt="YouTube"></a>
-                <a href="https://discord.gg/EYPkQBxGkS" target="_blank"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/discord-round-black-icon.png" alt="Discord"></a>
-            </div>
+    <div class="gallery-container">
+        <button id="prevButton" class="nav-button">◀</button>
+        <div class="gallery">
+            <img id="randomImage" src="">
         </div>
+        <button id="nextButton" class="nav-button">▶</button>
     </div>
+    <script src="scripts/Gallery.js"></script>
 </body>
 </html>

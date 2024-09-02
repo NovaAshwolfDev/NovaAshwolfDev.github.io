@@ -1,68 +1,51 @@
-@font-face {
-    font-family: 'Library3amsoft';
-   /* Name your font */
-    src: url('fonts/BOSTON-CAPS.ttf') format('opentype');
-   /* Ensure the path is correct */
-    font-weight: normal;
-    font-style: normal;
-}
+                /*TODO: Add Some More and Add Random Selected Backgrounds...*/
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Library3amsoft';
-   /* Apply your custom font */
+    font-family: 'Library3amsoft', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("./images/bg.png") center/cover no-repeat;
+    /* I'm gonna add more and random backgrounds soon :333333*/
+    background: url('/images/Backgrounds/Background1.png') center/cover no-repeat;
 }
-/* The rest of your CSS follows */
-.card {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 15px;
-    border: 2px solid black;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    color: white;
-    width: 350px;
-}
-.profile-picture img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-h1, p {
-    margin: 10px 0;
-    font-family: 'Library3amsoft', Arial, sans-serif;
-   /* Ensure your custom font is applied */
-}
-h1 {
-    font-size: 46px;
-}
-p {
-    font-size: 16px;
-}
-.renderImg{
-    display: flex;
-}
-.social-links {
+.gallery-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
+   /* Center the gallery container horizontally */
+    align-items: center;
+   /* Center the gallery container vertically */
+    max-width: 100%;
+   /* Ensure the container doesn't exceed the screen width */
 }
-.social-links a {
-    display: inline-block;
+.gallery {
+    max-width: 80%;
+    max-height: 80%;
+    position: relative;
+    text-align: center;
+   /* Center the image within the gallery */
 }
-.social-links img {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.gallery img {
+    width: 100%;
+    height: auto;
+    border: 15px solid black;
+    border-radius: 40px;
+    position: relative;
 }
-.social-links img:hover {
-    transform: scale(1.1);
+.nav-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 3px solid black;
+    color: white;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 0 80px;
+   /* Add margin to separate the buttons from the image */
+}
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 40px;
 }
