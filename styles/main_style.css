@@ -1,16 +1,25 @@
+/* main_style.css */
+/* VV IDK why i need this many font's here but anyways VV */
 @font-face {
-    font-family: 'Library3amsoft';
-    src: url('fonts/Boston.ttf') format('truetype');
+    font-family: 'Soft';
+    src: url('./fonts/Soft.otf') format('opentype');
     font-weight: normal;
-    font-style: normal;
+    font-style: normal, italic, oblique;
 }
+@font-face {
+    font-family: "Boston";
+    src: url("./fonts/Boston.ttf") format('truetype');
+    font-weight: bold;
+    font-style: normal, italic, oblique;
+}
+/* ^^ IDK why i need this many font's here but anyways ^^ */
 
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Library3amsoft', sans-serif;
+    font-family: 'Boston', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,4 +78,5 @@ p {
 .social-links img:hover {
     transform: scale(1.1);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    radiu
 }

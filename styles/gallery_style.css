@@ -1,24 +1,40 @@
-                /*TODO: Add Some More and Add Random Selected Backgrounds...*/
+/* gallery_style.css */
+/*TODO: Add Some More and Add Random Selected Backgrounds...*/
+/* VV IDK why i need this many font's here but anyways VV */
+@font-face {
+    font-family: 'Soft';
+    src: url('./fonts/Soft.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal, italic, oblique;
+}
+@font-face {
+    font-family: "Boston";
+    src: url("./fonts/Boston.ttf") format('truetype');
+    font-weight: bold;
+    font-style: normal, italic, oblique;
+}
+/* ^^ IDK why i need this many font's here but anyways ^^ */
+
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Library3amsoft', sans-serif;
+    font-family: 'Soft';
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 48;
     /* I'm gonna add more and random backgrounds soon :333333*/
     background: url('/images/Backgrounds/Background1.png') center/cover no-repeat;
+    /* animation: rainbow-hue 3s infinite linear; */
 }
 .gallery-container {
     display: flex;
     justify-content: center;
-   /* Center the gallery container horizontally */
     align-items: center;
-   /* Center the gallery container vertically */
     max-width: 100%;
-   /* Ensure the container doesn't exceed the screen width */
+    max-height: 50%;
 }
 .gallery {
     max-width: 80%;
@@ -28,15 +44,17 @@ body, html {
    /* Center the image within the gallery */
 }
 .gallery img {
-    width: 100%;
+    width: 75%;
     height: auto;
+    max-width: 100%;
+    max-height: 50%;
     border: 15px solid black;
     border-radius: 40px;
     position: relative;
 }
 .nav-button {
     background-color: rgba(0, 0, 0, 0.5);
-    border: 3px solid black;
+    border: 3px solid transparent;
     color: white;
     padding: 10px;
     font-size: 24px;
@@ -48,4 +66,35 @@ body, html {
 .nav-button:hover {
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 40px;
+}
+.creditTxt{
+    height: 100%;
+    width: 100%;
+    font-size: 48;
+    font-family: 'Boston';
+}
+
+.rainbow-text {
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    animation: rainbow-hue 3s infinite linear;
+}
+
+.rainbow-image {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    color: red;
+    animation: rainbow-hue 3s infinite linear;
+}
+
+@keyframes rainbow-hue {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }
