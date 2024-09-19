@@ -1,4 +1,5 @@
 // NovasTools.js
+
 export class setElementText {
 // This is pointless but also fuck you i like making classes and functions - Nova 2024
     constructor(id, text) {
@@ -9,6 +10,8 @@ export class setElementText {
     }
 }
 
+import exifr from '../node_modules/exifr/dist/full.esm.js';
+
 export class ImageMetaGrabber {
     constructor() {
         // Initialize any properties if needed
@@ -18,21 +21,24 @@ export class ImageMetaGrabber {
     async getImageMetadata(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
-            reader.onload = (event) => {
+            reader.onload = async (event) => {
+                const arrayBuffer = event.target.result;
+
                 try {
-                    const exif = EXIF.readFromBinaryFile(event.target.result);
-                    resolve(exif);
+                    // Use exifr to parse metadata regardless of file type
+                    const metadata = await exifr.parse(arrayBuffer);
+                    resolve(metadata);  // Resolve with the extracted metadata
                 } catch (error) {
-                    reject(error);
+                    reject(new Error("Error extracting metadata: " + error));
                 }
             };
+
             reader.onerror = () => reject(new Error("Failed to read file"));
-            reader.readAsArrayBuffer(file);
+            reader.readAsArrayBuffer(file);  // Read the image file as an ArrayBuffer
         });
     }
-
-    // You can add more methods here if needed
 }
+
 
 export class GPTDirReader {
     constructor(inputElementId, outputElementId) {

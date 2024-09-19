@@ -20,19 +20,23 @@ const Type = ["VRChat Photos", "Renders", "2D Art"];
 const Person = [
   "404 Galaxy",
   "504Brandon",
+  "Amicus",
   "Bam",
   "Crimson",
+  "Death Wolf",
   "Function Silly",
   "Haven",
   "ItsLJcool",
   "MTFuture",
   "Nova",
   "Srt",
+  "Von Lycaon",
   "VS Good",
 ];
 
 // This is really hard to implement so i won't bother for now
-const creditMeta = "Test";
+// Edit 1: I implemented it - Nova 19/09/2024 5:33PM
+const imageMetaGrabber = new ImageMetaGrabber();
 
 const Images = {
   "VRChat Photos": [
@@ -52,7 +56,6 @@ const Images = {
   }, {}),
 };
 
-// Cache DOM elements
 const randomImageElement = document.getElementById("randomImage");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
@@ -83,6 +86,8 @@ async function updateImage() {
     img.onload = () => resolve(imagePath + ext);
     img.onerror = () => resolve(null);
     img.src = imagePath + ext;
+    // Image Meta Credit Shit
+    getMeta(img);
   }));
 
   const loadedImagePath = (await Promise.all(imagePromises)).find(path => path);
@@ -110,18 +115,33 @@ document.addEventListener("DOMContentLoaded", function () {
   updateImage();
 });
 
-// Image Meta Credit Shit
-// document.getElementById("randomImage").addEventListener("load", async (event) => {
-//         var imageinfo = require('imageinfo'),
-//     	fs = require('fs');
+async function getMeta(image){
+  console.log("This Function is Running");
 
-//     fs.readFile('testimage', function(err, data) {
-//     	if (err) throw err;
+  const imageUrl = image.src;
 
-//     	info = imageinfo(data);
-//     	console.log("Data is type:", info.mimeType);
-//     	console.log("  Size:", data.length, "bytes");
-//     	console.log("  Dimensions:", info.width, "x", info.height);
-//     });
-// });
+  try {
+      const response = await fetch(imageUrl);
+      if (!response.ok) {
+          throw new Error(`Failed to fetch image. Status: ${response.status}`);
+      }
+      const blob = await response.blob();
+      console.log("Image blob fetched successfully.");
 
+      // Extract metadata using ImageMetaGrabber
+      const metadata = await imageMetaGrabber.getImageMetadata(blob);
+      const Artist = metadata.Artist
+      const Description = metadata.Description
+      if (Object.keys(metadata).length === 0) {
+          console.warn("No metadata found or metadata extraction failed.");
+      } else {
+          // Example of handling metadata
+          const creditText = document.getElementById("creditTxt");
+          if (creditText) {
+                creditText.textContent = `Artist: ${Artist}\nDescription: ${Description}`;
+          }
+      }
+  } catch (error) {
+      console.error("Error processing image:", error);
+  }
+}

@@ -3,7 +3,6 @@
 <html lang="en">
     <script type="module" src="scripts/Gallery.js"></script> <!-- My Cool Gallery Util :3 -->
     <script type="module" src="scripts/NovasTools.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
     <link rel="stylesheet" href="styles/gallery_style.css">
 <head>
     <meta charset="UTF-8">
@@ -15,13 +14,13 @@
         <div class="gallery-container">
             <button id="prevButton" class="nav-button">◀</button>
             <div class="gallery">
-                <img id="randomImage" src="">
                 <h1 class="creditTxt">Gallery</h1>
+                <img id="randomImage" src="">
+                <pre id="creditTxt" class="creditTxt">Error Credit Couldn't be Set or Is Null!!</pre>
                 <h2 class="creditTxt"><a href="..">Go Back</a></h2>
             </div>
             <button id="nextButton" class="nav-button">▶</button>
         </div>
     </div>
 </body>
-<!-- <h1 id="creditTxt" class="creditTxt">Error Credit Couldn't be Set or Is Null!!</h1> -->
 </html>
