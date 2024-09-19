@@ -10,7 +10,7 @@ export class setElementText {
     }
 }
 
-import exifr from '../node_modules/exifr/dist/full.esm.js';
+import exifr from './node_modules/exifr/dist/full.esm.js';
 
 export class ImageMetaGrabber {
     constructor() {
