@@ -1,4 +1,5 @@
 // NovasTools.js
+import exifr from './node_modules/exifr/dist/full.esm.js';
 
 export class setElementText {
 // This is pointless but also fuck you i like making classes and functions - Nova 2024
@@ -9,8 +10,6 @@ export class setElementText {
         }
     }
 }
-// test
-import exifr from './node_modules/exifr/dist/full.esm.js';
 
 export class ImageMetaGrabber {
     constructor() {

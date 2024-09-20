@@ -4,8 +4,6 @@ import {
   ImageMetaGrabber,
   GPTDirReader,
 } from "./NovasTools.js";
-
-// import ImageInfo from "./ImageInfo.js";
 // Hey it's me Nova! -Nova 2/08/2024 6:10PM
 // This is my Gallery Script :3
 // Arrays for types and images -ChatGPT 2/08/2024 6:10PM
@@ -40,17 +38,39 @@ const imageMetaGrabber = new ImageMetaGrabber();
 
 const Images = {
   "VRChat Photos": [
-    "Random1", "Random2", "Random3", "Random4", "Random5",
-    "Rare1", "Rare2", "Rare3", "Rare4", "Rare5"
+    "Random1",
+    "Random2",
+    "Random3",
+    "Random4",
+    "Random5",
+    "Rare1",
+    "Rare2",
+    "Rare3",
+    "Rare4",
+    "Rare5",
   ],
   Renders: [
-    "Random1", "Random2", "Random3", "Random4", "Random5",
-    "Rare1", "Rare2", "Rare3", "Rare4", "Rare5"
+    "Random1",
+    "Random2",
+    "Random3",
+    "Random4",
+    "Random5",
+    "Rare1",
+    "Rare2",
+    "Rare3",
+    "Rare4",
+    "Rare5",
   ],
   "2D Art": Person.reduce((acc, person) => {
     acc[person] = [
-      "Random1", "Random2", "Random3", "Random4",
-      "Rare1", "Rare2", "Rare3", "Rare4"
+      "Random1",
+      "Random2",
+      "Random3",
+      "Random4",
+      "Rare1",
+      "Rare2",
+      "Rare3",
+      "Rare4",
     ];
     return acc;
   }, {}),
@@ -69,28 +89,37 @@ let currentIndex = 0;
 async function updateImage() {
   let imagePath;
   const possibleExtensions = [".png"];
-  
+
   if (Type[currentTypeIndex] === "2D Art") {
     currentPerson = Person[Math.floor(Math.random() * Person.length)];
     const imagesForPerson = Images["2D Art"][currentPerson];
     currentIndex = Math.floor(Math.random() * imagesForPerson.length);
     imagePath = `./images/Gallery Images/${Type[currentTypeIndex]}/${currentPerson}/${imagesForPerson[currentIndex]}`;
   } else {
-    currentIndex = Math.floor(Math.random() * Images[Type[currentTypeIndex]].length);
-    imagePath = `./images/Gallery Images/${Type[currentTypeIndex]}/${Images[Type[currentTypeIndex]][currentIndex]}`;
+    currentIndex = Math.floor(
+      Math.random() * Images[Type[currentTypeIndex]].length
+    );
+    imagePath = `./images/Gallery Images/${Type[currentTypeIndex]}/${
+      Images[Type[currentTypeIndex]][currentIndex]
+    }`;
   }
 
   // Try to load multiple extensions in parallel
-  const imagePromises = possibleExtensions.map(ext => new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => resolve(imagePath + ext);
-    img.onerror = () => resolve(null);
-    img.src = imagePath + ext;
-    // Image Meta Credit Shit
-    getMeta(img);
-  }));
+  const imagePromises = possibleExtensions.map(
+    (ext) =>
+      new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(imagePath + ext);
+        img.onerror = () => resolve(null);
+        img.src = imagePath + ext;
+        // Image Meta Credit Shit
+        getMeta(img);
+      })
+  );
 
-  const loadedImagePath = (await Promise.all(imagePromises)).find(path => path);
+  const loadedImagePath = (await Promise.all(imagePromises)).find(
+    (path) => path
+  );
   if (loadedImagePath) {
     randomImageElement.src = loadedImagePath;
   } else {
@@ -101,7 +130,9 @@ async function updateImage() {
 
 // Event listeners for buttons
 prevButton.addEventListener("click", function () {
-  currentIndex = (currentIndex - 1 + Images[Type[currentTypeIndex]].length) % Images[Type[currentTypeIndex]].length;
+  currentIndex =
+    (currentIndex - 1 + Images[Type[currentTypeIndex]].length) %
+    Images[Type[currentTypeIndex]].length;
   updateImage();
 });
 
@@ -115,33 +146,33 @@ document.addEventListener("DOMContentLoaded", function () {
   updateImage();
 });
 
-async function getMeta(image){
+async function getMeta(image) {
   console.log("This Function is Running");
 
   const imageUrl = image.src;
 
   try {
-      const response = await fetch(imageUrl);
-      if (!response.ok) {
-          throw new Error(`Failed to fetch image. Status: ${response.status}`);
-      }
-      const blob = await response.blob();
-      console.log("Image blob fetched successfully.");
+    const response = await fetch(imageUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch image. Status: ${response.status}`);
+    }
+    const blob = await response.blob();
+    console.log("Image blob fetched successfully.");
 
-      // Extract metadata using ImageMetaGrabber
-      const metadata = await imageMetaGrabber.getImageMetadata(blob);
-      const Artist = metadata.Artist
-      const Description = metadata.Description
-      if (Object.keys(metadata).length === 0) {
-          console.warn("No metadata found or metadata extraction failed.");
-      } else {
-          // Example of handling metadata
-          const creditText = document.getElementById("creditTxt");
-          if (creditText) {
-                creditText.textContent = `Artist: ${Artist}\nDescription: ${Description}`;
-          }
+    // Extract metadata using ImageMetaGrabber
+    const metadata = await imageMetaGrabber.getImageMetadata(blob);
+    const Artist = metadata.Artist;
+    const Description = metadata.Description;
+    if (Object.keys(metadata).length === 0) {
+      console.warn("No metadata found or metadata extraction failed.");
+    } else {
+      // Example of handling metadata
+      const creditText = document.getElementById("creditTxt");
+      if (creditText) {
+        creditText.textContent = `Artist: ${Artist}\nDescription: ${Description}`;
       }
+    }
   } catch (error) {
-      console.error("Error processing image:", error);
+    console.error("Error processing image:", error);
   }
 }
