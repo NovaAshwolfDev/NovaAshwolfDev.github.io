@@ -25,6 +25,7 @@ const Person = [
   "Function Silly",
   "Haven",
   "ItsLJcool",
+  "Jas",
   "MTFuture",
   "Nova",
   "Srt",

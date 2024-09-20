@@ -61,7 +61,7 @@ p {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .social-links a {
@@ -71,11 +71,13 @@ p {
 .social-links img {
     width: 40px;
     height: 40px;
-    border-radius: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50%;
+    transition: box-shadow 0.3s ease;
 }
 
 .social-links img:hover {
     transform: scale(1.1);
+    border-radius: 50%;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    /* box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); */
 }
