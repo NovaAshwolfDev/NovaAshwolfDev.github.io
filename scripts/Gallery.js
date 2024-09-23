@@ -16,7 +16,6 @@ import {
 // Arrays for types and images
 const Type = ["VRChat Photos", "Renders", "2D Art"];
 const Person = [
-  "404 Galaxy",
   "504Brandon",
   "Amicus",
   "Bam",
