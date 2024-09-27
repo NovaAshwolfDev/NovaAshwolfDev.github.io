@@ -36,6 +36,8 @@ const Person = [
 // Edit 1: I implemented it - Nova 19/09/2024 5:33PM
 const imageMetaGrabber = new ImageMetaGrabber();
 
+// I had an idea that i could just make a new class that let's you select an image type
+// and then a character type and then load the images?? - Nova 2024
 const Images = {
   "VRChat Photos": [
     "Random1",
