@@ -37,6 +37,13 @@ NovaTheHusky {
     font-size: 40px;
     color: black;
 }
+credit {
+    position: fixed;
+    left: 650px;
+    top: 640px;
+    font-size: 35px;
+    color: red;
+}
 .profile-picture img {
     max-width: 200px;
     position: fixed;
