@@ -1,34 +1,46 @@
-<!-- index.html -->
+<!-- about.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nova's Profile Card</title>
     <!-- Seperating the Main Page stylesheet from the gallery -->
-    <link rel="stylesheet" href="styles/about_style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/about_style.css" />
+    <!-- <script type="module" src="./scripts/Main.js"></script> -->
+    <!-- Testing Some Stuff -->
+  </head>
+  <body>
     <div class="background">
+      <header>
+        <nav class="navbar">
+          <ul class="nav-links">
+            <li><a class="inner-rect" href="index.html">Home</a></li>
+            <li><a class="inner-rect" href="gallery.html">Gallery</a></li>
+            <li><a class="inner-rect" href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="card">
         <b>About Me</b>
-        <NovaTheHusky>Nova The Husky</NovaTheHusky>
-        <header>
-            <nav class="navbar">
-                <ul class="nav-links">
-                    <li><a class="inner-rect" href="index.html">Home</a></li>
-                    <li><a class="inner-rect" href="gallery.html">Gallery</a></li>
-                    <li><a class="inner-rect" href="about.html">About</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="card">
-            <div class="profile-picture">
-                <img src="images/Gallery Images\2D Art\Nova\Random1.png" alt="Profile Picture">
-            </div>
-            <p>Hey there! I'm Nova, a passionate programmer with a love for all things tech.
-                From game development and VR to web design, I thrive on bringing creative ideas to life through code. Whether it's building interactive experiences, designing digital art, or solving complex problems, I'm always up for a challenge. Check out my gallery for a look at some of my work! I Also Code For Friday Night Funkin Mods DM me on Discord for more info</p>
+        <div class="profile-picture">
+          <img
+            id="pfp"
+            src="assets\images\Gallery Images\2D Art\Nova\Random1.png"
+            alt="Profile Picture"
+          />
         </div>
-        <credit>Art By: MTFuture</credit>
+        <NovaTheHusky>Nova The Husky</NovaTheHusky>
+        <p>
+          Hey there! I'm Nova, a passionate programmer with a love for all
+          things tech. From game development and VR to web design, I thrive on
+          bringing creative ideas to life through code. Whether it's building
+          interactive experiences, designing digital art, or solving complex
+          problems, I'm always up for a challenge. Check out my gallery for a
+          look at some of my work! I Also Code For Friday Night Funkin Mods DM
+          me on Discord for more info
+        </p>
+      <credit>Art By: MTFuture</credit>
     </div>
-</body>
+  </body>
 </html>

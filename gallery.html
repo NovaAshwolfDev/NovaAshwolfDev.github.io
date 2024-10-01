@@ -1,14 +1,17 @@
 <!-- gallery.html -->
 <!DOCTYPE html>
 <html lang="en">
-    <script type="module" src="scripts/Gallery.js"></script> <!-- My Cool Gallery Util :3 -->
-    <script type="module" src="scripts/NovasTools.js"></script>
-    <link rel="stylesheet" href="styles/gallery_style.css">
+<script type="module" src="scripts/Gallery.js"></script> <!-- My Cool Gallery Util :3 -->
+<script type="module" src="scripts/NovasTools.js"></script>
+<script type="module" src="scripts/NovasPointlessUtils.js"></script> <!-- My Pointless Utils -->
+<link rel="stylesheet" href="styles/gallery_style.css">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova's Gallery</title>
 </head>
+
 <body>
     <div class="background">
         <header>
@@ -20,11 +23,10 @@
                 </ul>
             </nav>
         </header>
-    <div>
         <div class="gallery-container">
             <button id="prevButton" class="nav-button">◀</button>
             <div class="gallery">
-                <h1 class="creditTxt">Gallery</h1>
+                <h1 class="creditTxt"></h1>
                 <img loading="lazy" id="randomImage" src="">
                 <pre id="creditTxt" class="creditTxt">Error Credit Couldn't be Set or Is Null!!</pre>
                 <h2 class="creditTxt"><a href="..">Go Back</a></h2>
@@ -32,5 +34,7 @@
             <button id="nextButton" class="nav-button">▶</button>
         </div>
     </div>
+    <div>
 </body>
+
 </html>

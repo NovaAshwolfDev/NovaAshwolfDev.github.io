@@ -22,13 +22,14 @@ body, html {
     font-family: 'Boston', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background: url('/images/Backgrounds/Background1.png') center/cover no-repeat;
+    /* align-items: center; */
+    background: url('/assets/images/Backgrounds/Background1.png') center/cover no-repeat;
 }
 
 /* Card Styles */
 .card {
     background: rgba(0, 0, 0, 0.7);
+    position: relative;
     padding: 20px;
     border-radius: 15px;
     margin: auto;
@@ -89,22 +90,25 @@ ul {
     list-style-type: none;
     border: 10px;
   }
-
 /* Navbar Styling */
 .navbar {
     width: 1110px;
     height: 100px;
-    position: fixed;
-    top: -10px;
+    position: sticky;
+    /* top: -5000px; */
+    left: 0px;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     margin: 50px;
     border-radius: 25px; /* Rounded edges similar to the one in your image */
-}
-
-.inner-rect {
-    background-color: rgba(0, 0, 0, 0.5); 
+  }
+  
+  .inner-rect {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0px;
+    left: 0px;
     border-radius: 25px;
     padding: 18px 120px;
     flex-wrap: wrap; /* Allows the items to wrap if the container width is too small */
@@ -112,27 +116,27 @@ ul {
     color: white;
     /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); */
     margin: 35px;
-}
-
-.nav-links {
+  }
+  
+  .nav-links {
     list-style: none;
     display: flex;
     /* gap: 35px; */
-    position: fixed;
-    left: 355px;
-    top: 58px;
-}
-
-.nav-links li a {
+    position: relative;
+    left: -20px;
+    top: 20px;
+  }
+  
+  .nav-links li a {
     text-decoration: none;
     color: white;
     font-size: 1.7rem;
     font-weight: bold;
-}
-
-.nav-links li a:hover {
+  }
+  
+  .nav-links li a:hover {
     color: #ffcc00; /* Highlight color on hover */
-}
+  }
 
 /* Optional styling for positioning */
 header {

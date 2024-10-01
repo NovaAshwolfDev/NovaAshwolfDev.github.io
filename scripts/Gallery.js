@@ -4,6 +4,13 @@ import {
   ImageMetaGrabber,
   GPTDirReader,
 } from "./NovasTools.js";
+import {
+  NovasPointlessUtils,
+  GayElement,
+  NovaAudio,
+  NovaSprite,
+} from "./NovasPointlessUtils.js";
+// import "./Main.js";
 // Hey it's me Nova! -Nova 2/08/2024 6:10PM
 // This is my Gallery Script :3
 // Arrays for types and images -ChatGPT 2/08/2024 6:10PM
@@ -28,6 +35,7 @@ const Person = [
   "MTFuture",
   "Nova",
   "Srt",
+  "Sword", // Sword ✦ 💠
   "Von Lycaon",
   "VS Good",
 ];
@@ -96,12 +104,12 @@ async function updateImage() {
     currentPerson = Person[Math.floor(Math.random() * Person.length)];
     const imagesForPerson = Images["2D Art"][currentPerson];
     currentIndex = Math.floor(Math.random() * imagesForPerson.length);
-    imagePath = `./images/Gallery Images/${Type[currentTypeIndex]}/${currentPerson}/${imagesForPerson[currentIndex]}`;
+    imagePath = `./assets/images/Gallery Images/${Type[currentTypeIndex]}/${currentPerson}/${imagesForPerson[currentIndex]}`;
   } else {
     currentIndex = Math.floor(
       Math.random() * Images[Type[currentTypeIndex]].length
     );
-    imagePath = `./images/Gallery Images/${Type[currentTypeIndex]}/${
+    imagePath = `./assets/images/Gallery Images/${Type[currentTypeIndex]}/${
       Images[Type[currentTypeIndex]][currentIndex]
     }`;
   }
@@ -144,15 +152,30 @@ nextButton.addEventListener("click", function () {
 });
 
 // Set the initial random image on page load
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   updateImage();
 });
-
+/**
+ * **Nova's Image Meta Tool**
+ * Used For The Credits System:
+ *
+ *
+ * **Credits:**
+ * Utils I Used:
+ * [PNG-Metadata](https://github.com/hometlt/png-metadata)
+ * [ExifR](https://www.npmjs.com/package/exifr)
+ * **My Utils I Made:**
+ *      Nova's Tools
+ * Nova's Pointless Utils
+ *      Gallery
+ * These Utils do not have links...
+ *        *YET*
+ * [JavaScript](https://web.dev/javascript)
+ * [HTML](https://web.dev/html)
+ * [CSS](https://web.dev/css)
+ */
 async function getMeta(image) {
-  console.log("This Function is Running");
-
   const imageUrl = image.src;
-
   try {
     const response = await fetch(imageUrl);
     if (!response.ok) {
