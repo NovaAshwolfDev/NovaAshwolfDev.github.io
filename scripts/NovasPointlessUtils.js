@@ -106,6 +106,7 @@ export class NovaAudio extends Audio {
       audioElement.src = src;
       await audioElement.load();
       this._audioElement = audioElement;
+      this._audioElement.volume = 0;
       return audioElement;
     } catch (error) {
       console.error("Error loading audio:", error);

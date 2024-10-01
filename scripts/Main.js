@@ -34,7 +34,7 @@ import { ConsoleEX, NovaKeys } from "./NovasTools.js";
 // Initialize your canvas and sprite
 let isRunning = true;
 const canvas = document.getElementById("AboutCanvas");
-const context = canvas.getContext("2d");
+// const context = canvas.getContext("2d");
 let testSpr = new NovaSprite(
   100,
   100,
@@ -44,7 +44,7 @@ let testSpr = new NovaSprite(
 );
 let audio = new NovaAudio(
   "/assets/music/Freaking Out Alone V2.mp3",
-  1,
+  0,
   false,
   true
 );
@@ -52,16 +52,14 @@ let novaKeys = new NovaKeys(); // Instantiate NovaKeys
 let consoleEX = new ConsoleEX(false, null);
 
 // Load the sprite image
-testSpr
-  .loadImage("/assets/images/Gallery Images/Renders/Random1.png")
-  .then(() => {
+testSpr.loadImage("/assets/images/Gallery Images/Renders/Random1.png").then(() => {
     consoleEX.logColor(`Sprite Source: ${testSpr.src}`, "yellow");
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    // context.clearRect(0, 0, canvas.width, canvas.height);
     window.onload = () => {
-      testSpr._canvas = context;
+    //   testSpr._canvas = context;
     //   testSpr.draw(context);
-      testSpr.draw(context, 0, 0)
-      canvas.style.position = "relative";
+    //   testSpr.draw(context, 0, 0)
+    //   canvas.style.position = "relative";
     //   canvas.style.left = "-300px";
     //   canvas.style.top = "-0px";
     };
@@ -80,24 +78,28 @@ function update() {
         console.log("Loop started");
       }
       if (event.key.toLowerCase() === "b") {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        testSpr.drawImage(context)
+        // context.clearRect(0, 0, canvas.width, canvas.height);
+        // testSpr.drawImage(context)
         // testSpr.setPos(100, 100)
         // stopLoop();
         console.log(`Loop stopped`);
       }
       if (event.key.toLowerCase() === "h") {
         audio.play(false, 1);
+        console.log(`Audio Volume ${audio._audioElement.volume}`);
       } else if (event.key === "l") {
-        // audio.addVolume(4); // Decrease volume
-        console.log(`Audio Volume ${audio.volume}`);
+        audio._audioElement.volume = 0.1;
+        console.log(`Audio Volume ${audio._audioElement.volume}`);
+      }else if (event.key === "t"){
+        audio._audioElement.volume = 1;
       }
     });
     // setTimeout(console.log(`Audio Volume ${audio.volume}`), 0.00001);
     // Request the next animation frame
     requestAnimationFrame(update);
-    setTimeout(stopLoop, 8);
-    console.log(`Current Audio Volume: ${audio.volume}`);
+    // console.log(`Audio Position ${Number(audio._audioElement.currentTime)}`);
+    // setTimeout(stopLoop, 8);
+    // console.log(`Current Audio Volume: ${audio.volume}`);
     // setTimeout(requestAnimationFrame(update), 0.001);
   }
 }
