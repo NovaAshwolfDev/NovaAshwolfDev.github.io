@@ -88,7 +88,7 @@ function update() {
         audio.play(false, 1);
         console.log(`Audio Volume ${audio._audioElement.volume}`);
       } else if (event.key === "l") {
-        audio._audioElement.volume = 0.1;
+        audio._audioElement.volume = 0;
         console.log(`Audio Volume ${audio._audioElement.volume}`);
       }else if (event.key === "t"){
         audio._audioElement.volume = 1;
