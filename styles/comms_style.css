@@ -1,0 +1,124 @@
+@font-face {
+    font-family: "Boston";
+    src: url("./fonts/Boston.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal, italic, oblique;
+  }
+  
+  body,html {
+      height: 100%;
+      width: 100%;
+      font-family: 'Boston', sans-serif;
+      display: flex;
+      justify-content: center;
+      /* align-items: center; */
+      background: url('/assets/images/Backgrounds/Background1.png') center/cover no-repeat;
+  }
+  .card {
+    background: rgba(0, 0, 0, 0.7);
+    position: relative;
+    top: 0px;
+    padding: 100px;
+    border-radius: 15px;
+    margin: auto;
+    border: 2px solid black;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* top: auto; */
+    color: white;
+    width: 500px;
+    height: 350px;
+  }
+  b {
+    position: relative;
+    left: 100px;
+    top: -80px;
+    /* font-size: 40px; */
+    
+    color: white;
+  }
+
+  .profile-picture img {
+    position: relative;
+    max-width: 200px;
+    left: -80px;
+    top: -75px;
+    border: 5px solid black;
+    border-radius: 20px;
+  }
+  
+  ul {
+    display: flex;
+    list-style-type: none;
+    border: 10px;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    width: 1560px;
+    height: 100px;
+    position: sticky;
+    top: -5000px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    border-radius: 25px; /* Rounded edges similar to the one in your image */
+  }
+  
+  .inner-rect {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    border-radius: 25px;
+    padding: 18px 120px;
+    flex-wrap: wrap; /* Allows the items to wrap if the container width is too small */
+    /* text-align: center; */
+    color: white;
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); */
+    margin: 35px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    /* gap: 35px; */
+    position: relative;
+    left: -20px;
+    top: 20px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  
+  .nav-links li a:hover {
+    color: #ffcc00; /* Highlight color on hover */
+  }
+  #desc-label {
+    position: relative;
+    top: -100px;
+    left: 160px;
+    scale: 2;
+    /* font-size: 140; */
+  }
+  #paypal-form-fields-container-WA9NNVVRNYN5A {
+    position: relative;
+    top: 10px;
+    left: 50px;
+  }
+  .input-label {
+    position: relative;
+    scale: 1.3;
+    left: 60px;
+  }
+  #price-label {
+    position: relative;
+    left: 530px;
+    top: -40px;
+    scale: 3;
+  }
