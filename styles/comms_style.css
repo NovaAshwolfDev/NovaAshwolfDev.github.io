@@ -28,14 +28,6 @@
     width: 500px;
     height: 350px;
   }
-  b {
-    position: relative;
-    left: 100px;
-    top: -80px;
-    /* font-size: 40px; */
-    
-    color: white;
-  }
 
   .profile-picture img {
     position: relative;
@@ -117,8 +109,7 @@
     left: 60px;
   }
   #price-label {
-    position: relative;
+    text-align:center;
     left: 530px;
-    top: -40px;
     scale: 3;
   }
