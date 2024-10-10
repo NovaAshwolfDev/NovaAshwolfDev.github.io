@@ -6,6 +6,8 @@ import {
   NovaSprite,
 } from "./NovasPointlessUtils.js";
 import { ConsoleEX, NovaKeys } from "./NovasTools.js";
+// Import the Sprite type definition
+import { WebSprite } from './Testing.ts';
 
 // /**
 //  *                       The Main Website Script
@@ -50,6 +52,9 @@ let audio = new NovaAudio(
 );
 let novaKeys = new NovaKeys(); // Instantiate NovaKeys
 let consoleEX = new ConsoleEX(false, null);
+let spr = new WebSprite(0, 0, 32, 32, "/assets/images/Gallery Images/Renders/Random1.png");
+// spr.
+// spr.image.src = "/assets/images/Gallery Images/Renders/Random1.png";
 
 // Load the sprite image
 testSpr.loadImage("/assets/images/Gallery Images/Renders/Random1.png").then(() => {
