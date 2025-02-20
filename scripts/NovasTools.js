@@ -154,6 +154,90 @@ export class NovaKeys {
   }
 }
 
+export class DiscordPFP {
+  constructor(clientId, redirectUri, scope = "identify") {
+    this.clientId = clientId; // Your Discord application's client ID
+    this.redirectUri = redirectUri; // The URI where users will be redirected after authentication
+    this.scope = scope; // Scopes for the data you want to access (e.g., "identify" for basic profile info)
+  }
+
+  // Step 1: Redirect to Discord's OAuth2 authorization URL
+  redirectToDiscordAuth() {
+    const authUrl = `https://discord.com/oauth2/authorize?client_id=${this.clientId}&redirect_uri=${encodeURIComponent(this.redirectUri)}&response_type=code&scope=${this.scope}`;
+    window.location.href = authUrl; // Redirect the user to Discord for authorization
+  }
+
+  // Step 2: Handle the callback after user authorization
+  async handleOAuthCallback() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code'); // Get the authorization code from the URL
+
+    if (code) {
+      const token = await this.exchangeCodeForToken(code); // Exchange code for token
+      if (token) {
+        await this.fetchAvatar(token); // Fetch the avatar with the access token
+      }
+    }
+  }
+
+  // Step 3: Exchange authorization code for an access token
+  async exchangeCodeForToken(code) {
+    const tokenUrl = "https://discord.com/api/v10/oauth2/token";
+    const body = new URLSearchParams({
+      client_id: this.clientId,
+      client_secret: "YOUR_CLIENT_SECRET", // Replace with your client secret
+      code: code,
+      grant_type: "authorization_code",
+      redirect_uri: this.redirectUri,
+      scope: this.scope,
+    });
+
+    try {
+      const response = await fetch(tokenUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: body.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to exchange code for token");
+      }
+
+      const data = await response.json();
+      return data.access_token; // Return the access token
+    } catch (error) {
+      console.error("Error exchanging code for token:", error);
+      alert("Failed to authenticate with Discord.");
+    }
+  }
+
+  // Step 4: Fetch user data (including avatar) using the access token
+  async fetchAvatar(token) {
+    try {
+      const response = await fetch("https://discord.com/api/v10/users/@me", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+
+      const userData = await response.json();
+      const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png?size=256`;
+
+      // Apply it to the image element (make sure there's an element with id="avatar" in your HTML)
+      document.getElementById('avatar').src = avatarUrl;
+    } catch (error) {
+      console.error("Error fetching avatar:", error);
+      alert("Failed to fetch avatar.");
+    }
+  }
+}
+
 /**
  * Extended Functionality for Console that adds colorful console messages
  * Credits: **[Shane](https://stackoverflow.com/users/702664/shane) | [Nova](https://github.com/NovaTheFurryDev/)**

@@ -7,7 +7,7 @@ import {
 } from "./NovasPointlessUtils.js";
 import { ConsoleEX, NovaKeys } from "./NovasTools.js";
 // Import the Sprite type definition
-import { WebSprite } from './Testing.ts';
+// import { WebSprite } from './Testing.ts';
 
 // /**
 //  *                       The Main Website Script
@@ -52,21 +52,23 @@ let audio = new NovaAudio(
 );
 let novaKeys = new NovaKeys(); // Instantiate NovaKeys
 let consoleEX = new ConsoleEX(false, null);
-let spr = new WebSprite(0, 0, 32, 32, "/assets/images/Gallery Images/Renders/Random1.png");
+// let spr = new WebSprite(0, 0, 32, 32, "/assets/images/Gallery Images/Renders/Random1.png");
 // spr.
 // spr.image.src = "/assets/images/Gallery Images/Renders/Random1.png";
 
 // Load the sprite image
-testSpr.loadImage("/assets/images/Gallery Images/Renders/Random1.png").then(() => {
+testSpr
+  .loadImage("/assets/images/Gallery Images/Renders/Random1.png")
+  .then(() => {
     consoleEX.logColor(`Sprite Source: ${testSpr.src}`, "yellow");
     // context.clearRect(0, 0, canvas.width, canvas.height);
     window.onload = () => {
-    //   testSpr._canvas = context;
-    //   testSpr.draw(context);
-    //   testSpr.draw(context, 0, 0)
-    //   canvas.style.position = "relative";
-    //   canvas.style.left = "-300px";
-    //   canvas.style.top = "-0px";
+      //   testSpr._canvas = context;
+      //   testSpr.draw(context);
+      //   testSpr.draw(context, 0, 0)
+      //   canvas.style.position = "relative";
+      //   canvas.style.left = "-300px";
+      //   canvas.style.top = "-0px";
     };
     startLoop(); // Start the update loop after the image is loaded
   })
@@ -77,6 +79,7 @@ testSpr.loadImage("/assets/images/Gallery Images/Renders/Random1.png").then(() =
 // The update loop function
 function update() {
   if (isRunning) {
+    let body = new GayElement("body", true);
     document.addEventListener("keydown", async function (event) {
       if (event.key.toLowerCase() === "p") {
         // Check if the 'P' key is pressed (case-insensitive)
@@ -87,7 +90,7 @@ function update() {
         // testSpr.drawImage(context)
         // testSpr.setPos(100, 100)
         // stopLoop();
-        console.log(`Loop stopped`);
+        // console.log(`Loop stopped`);
       }
       if (event.key.toLowerCase() === "h") {
         audio.play(false, 1);
@@ -95,7 +98,7 @@ function update() {
       } else if (event.key === "l") {
         audio._audioElement.volume = 0;
         console.log(`Audio Volume ${audio._audioElement.volume}`);
-      }else if (event.key === "t"){
+      } else if (event.key === "t") {
         audio._audioElement.volume = 1;
       }
     });

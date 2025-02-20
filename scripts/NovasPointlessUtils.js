@@ -3,7 +3,7 @@ import { NovaKeys, ConsoleEX } from "./NovasTools.js";
 const consoleEx = new ConsoleEX(false, null);
 /**
  * My Script for Stuff that i make when i'm bored
- * Made by [Me](https://github.com/NovaTheFurryDev/)
+ * Made by [Me](https://github.com/NovaAshwolfDev/)
  * who else would make this...
  * @param {*} text
  * @returns
@@ -22,14 +22,12 @@ export class NovasPointlessUtils {
 export class GayElement {
   constructor(elementID, BodyGay = false) {
     if (BodyGay) {
-      const body = document.getElementById("body");
+      let body = document.body;
+      body.classList.add("animated-body"); // Add the
       console.log("The Body & HTML Is now **GAY >:3**");
     } else {
       const element = document.getElementById(elementID); // Get the target element by ID
-    }
-    if (element) {
       element.classList.add("animated-div"); // Add the animation class
-      body.classList.add("animated-body"); // Add the
     }
     return elementID;
     console.log(elementID + "Is now **GAY :3**");
@@ -41,7 +39,7 @@ export class GayElement {
  * ### NovaAudio is a Class to extend and improve the functionality of the [Audio Class](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio) in [JavaScript](https://web.dev/javascript).
  * -------------------------------------------
  * ### Credits:
- * - [Nova](https://github.com/NovaTheFurryDev/)
+ * - [Nova](https://github.com/NovaAshwolfDev/)
  * - **Software Used:**
  *   - [JavaScript](https://web.dev/javascript)
  *   - [HTML](https://web.dev/html)
@@ -176,7 +174,7 @@ export class NovaAudio extends Audio {
  * NovaSprite is a Class to extend and improve the Functionality
  * of the [Image](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image) Class in [JavaScript](https://web.dev/javascript)
  * Credits:
- * [Nova](https://github.com/NovaTheFurryDev/)
+ * [Nova](https://github.com/NovaAshwolfDev/)
  * [Image Class](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image)
  *
  * @var {Array} _clipRect Stores the Rect data for the ClipRect used for Animation's

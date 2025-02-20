@@ -5,24 +5,24 @@
   font-style: normal, italic, oblique;
 }
 
-body,html {
-
-    height: 100%;
-    width: 100%;
-    font-family: 'Boston', sans-serif;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    background: url('/assets/images/Backgrounds/Background1.png') center/cover no-repeat;
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-family: "Boston", sans-serif;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  background: linear-gradient(#fcebcc, #edab56);
 }
 .card {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.3);
   position: relative;
   top: 0px;
-  padding: 100px;
+  padding: 120px;
   border-radius: 15px;
   margin: auto;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   /* top: auto; */
   color: white;
@@ -41,12 +41,12 @@ b {
   left: 180px;
   top: -80px;
   font-size: 40px;
-  color: white;
+  color: #edb872;
 }
-NovaTheHusky {
+NovaAshwolf {
   position: relative;
   left: 150px;
-  top: -400px;
+  top: -390px;
   font-size: 40px;
   color: black;
 }
@@ -55,14 +55,15 @@ credit {
   left: -75px;
   top: -315px;
   font-size: 35px;
-  color: red;
+  color: #edb872;
 }
 .profile-picture img {
   position: relative;
   max-width: 200px;
   left: -80px;
   top: -75px;
-  border: 5px solid black;
+  /* border: 5px solid black; */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
 }
 
@@ -77,9 +78,9 @@ ul {
   width: 1560px;
   height: 100px;
   position: sticky;
-  top: -5000px;
+  /* top: -5000px; */
   left: 0px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   margin: 50px;
@@ -99,7 +100,6 @@ ul {
   /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); */
   margin: 35px;
 }
-
 .nav-links {
   list-style: none;
   display: flex;

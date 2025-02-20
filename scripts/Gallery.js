@@ -23,20 +23,17 @@ import {
 // Arrays for types and images
 const Type = ["VRChat Photos", "Renders", "2D Art"];
 const Person = [
-  "504Brandon",
+  "KittySleeper",
   "Amicus",
   "Bam",
   "Crimson",
   "Death Wolf",
-  "Function Silly",
   "Haven",
   "ItsLJcool",
-  "Jas",
   "MTFuture",
   "Nova",
   "Srt",
   "Sword", // Sword ✦ 💠
-  "Von Lycaon",
   "VS Good",
 ];
 
@@ -95,11 +92,12 @@ let currentTypeIndex = Math.floor(Math.random() * Type.length);
 let currentPerson = Person[0];
 let currentIndex = 0;
 
+new GayElement(randomImageElement, true);
+
 // Function to update the image
 async function updateImage() {
   let imagePath;
   const possibleExtensions = [".png"];
-
   if (Type[currentTypeIndex] === "2D Art") {
     currentPerson = Person[Math.floor(Math.random() * Person.length)];
     const imagesForPerson = Images["2D Art"][currentPerson];

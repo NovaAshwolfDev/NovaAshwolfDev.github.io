@@ -23,17 +23,17 @@ body, html {
     display: flex;
     justify-content: center;
     /* align-items: center; */
-    background: url('/assets/images/Backgrounds/Background1.png') center/cover no-repeat;
+    background: linear-gradient(#fcebcc, #edab56);
 }
 
 /* Card Styles */
 .card {
-    background: rgba(0, 0, 0, 0.7);
+    background: #0000005e;
     position: relative;
-    padding: 20px;
+    padding: 40px;
     border-radius: 15px;
     margin: auto;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     text-align: center;
     /* top: auto; */
@@ -57,7 +57,7 @@ h1 {
 
 p {
     margin: 10px 0;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 /* Social Links Styles */
@@ -76,6 +76,7 @@ p {
     height: 40px;
     border-radius: 50%;
     transition: box-shadow 0.3s ease;
+    background-color: #00000073;
 }
 
 .social-links img:hover {
@@ -97,7 +98,7 @@ ul {
     position: sticky;
     /* top: -5000px; */
     left: 0px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     margin: 50px;
@@ -105,7 +106,7 @@ ul {
   }
   
   .inner-rect {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0px;
     left: 0px;
