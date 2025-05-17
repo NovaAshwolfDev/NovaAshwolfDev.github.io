@@ -5,15 +5,18 @@
     font-style: normal, italic, oblique;
   }
   
-  body,html {
-      height: 100%;
-      width: 100%;
-      font-family: 'Boston', sans-serif;
-      display: flex;
-      justify-content: center;
-      /* align-items: center; */
-      background: linear-gradient(#fcebcc, #edab56);
-    }
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-family: "Boston", sans-serif;
+  display: flex;
+  flex-direction: column; /* Stack things vertically */
+  align-items: center; /* Horizontally center */
+  background: linear-gradient(#fcebcc, #edab56);
+  margin: 0;
+}
+
   .card {
     background: #0000004f;
     position: relative;
@@ -21,9 +24,7 @@
     padding: 100px;
     border-radius: 15px;
     margin: auto;
-    /* border: 2px solid black; */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    /* top: auto; */
     color: white;
     width: 500px;
     height: 350px;
@@ -49,12 +50,12 @@
     width: 1560px;
     height: 100px;
     position: sticky;
-    /* top: -5000px; */
-    left: 0px;
+    top: 10px;
+    left: 150px;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
-    margin: 50px;
+    margin: 70px;
     border-radius: 25px; /* Rounded edges similar to the one in your image */
   }
   
@@ -91,16 +92,16 @@
   .nav-links li a:hover {
     color: #ffcc00; /* Highlight color on hover */
   }
-  #desc-label {
+  .item-header {
     position: relative;
-    top: -100px;
-    left: 160px;
+    top: -30px;
+    left: 120px;
     scale: 2;
     /* font-size: 140; */
   }
   #paypal-form-fields-container-WA9NNVVRNYN5A {
     position: relative;
-    top: 10px;
+    top: -40px;
     left: 50px;
   }
   .input-label {
@@ -109,7 +110,9 @@
     left: 60px;
   }
   #price-label {
-    text-align:center;
-    left: 530px;
-    scale: 3;
+    position: relative;
+    /* text-align:center; */
+    left: 100px;
+    top: 10px;
+    scale: 1;
   }

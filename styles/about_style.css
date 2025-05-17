@@ -7,30 +7,29 @@
 
 body,
 html {
+  margin: 0;
+  padding: 0;
   height: 100%;
   width: 100%;
   font-family: "Boston", sans-serif;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   background: linear-gradient(#fcebcc, #edab56);
 }
 .card {
   background: rgba(0, 0, 0, 0.3);
   position: relative;
   top: 0px;
-  padding: 120px;
+  padding: 100px;
   border-radius: 15px;
   margin: auto;
-  /* border: 2px solid black; */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  /* top: auto; */
   color: white;
   width: 500px;
   height: 250px;
 }
 p {
-  width: 300px; /* Adjust the width of the box */
+  width: 300px;
   position: relative;
   left: 205px;
   top: -370px;
@@ -43,17 +42,17 @@ b {
   font-size: 40px;
   color: #edb872;
 }
-NovaAshwolf {
+Milo {
   position: relative;
   left: 150px;
-  top: -390px;
+  top: -370px;
   font-size: 40px;
   color: black;
 }
 credit {
   position: relative;
   left: -75px;
-  top: -315px;
+  top: -280px;
   font-size: 35px;
   color: #edb872;
 }
@@ -62,7 +61,6 @@ credit {
   max-width: 200px;
   left: -80px;
   top: -75px;
-  /* border: 5px solid black; */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
 }
@@ -73,37 +71,33 @@ ul {
   border: 10px;
 }
 
-/* Navbar Styling */
 .navbar {
   width: 1560px;
   height: 100px;
   position: sticky;
-  /* top: -5000px; */
-  left: 0px;
+  top: 10px;
+  left: 150px;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  margin: 50px;
-  border-radius: 25px; /* Rounded edges similar to the one in your image */
+  margin: 70px;
+  border-radius: 25px; 
 }
 
 .inner-rect {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0px;
   left: 0px;
   border-radius: 25px;
   padding: 18px 120px;
-  flex-wrap: wrap; /* Allows the items to wrap if the container width is too small */
-  /* text-align: center; */
+  flex-wrap: wrap; 
   color: white;
-  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); */
   margin: 35px;
 }
 .nav-links {
   list-style: none;
   display: flex;
-  /* gap: 35px; */
   position: relative;
   left: -20px;
   top: 20px;
@@ -117,7 +111,7 @@ ul {
 }
 
 .nav-links li a:hover {
-  color: #ffcc00; /* Highlight color on hover */
+  color: #ffcc00; 
 }
 #NovaDiv {
   max-width: 200px;

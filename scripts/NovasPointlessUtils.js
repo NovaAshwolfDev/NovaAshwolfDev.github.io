@@ -24,7 +24,7 @@ export class GayElement {
     if (BodyGay) {
       let body = document.body;
       body.classList.add("animated-body"); // Add the
-      console.log("The Body & HTML Is now **GAY >:3**");
+      consoleEx.logColor("Set Body to Gay :3c", "#FF8000", "log");
     } else {
       const element = document.getElementById(elementID); // Get the target element by ID
       element.classList.add("animated-div"); // Add the animation class

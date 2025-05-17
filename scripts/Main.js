@@ -5,7 +5,7 @@ import {
   NovaAudio,
   NovaSprite,
 } from "./NovasPointlessUtils.js";
-import { ConsoleEX, NovaKeys } from "./NovasTools.js";
+import { ConsoleEX, NovaKeys, JSONC } from "./NovasTools.js";
 // Import the Sprite type definition
 // import { WebSprite } from './Testing.ts';
 
@@ -26,89 +26,55 @@ import { ConsoleEX, NovaKeys } from "./NovasTools.js";
 //  *                 [HTML](https://web.dev/html)
 //  *                 [CSS](https://web.dev/css)
 //  */
-// export class Main {
-//   constructor() {
-//     // I don't know
-//     return "Not Implemented Yet!!";
-//   }
-// }
 
-// Initialize your canvas and sprite
 let isRunning = true;
-const canvas = document.getElementById("AboutCanvas");
-// const context = canvas.getContext("2d");
-let testSpr = new NovaSprite(
-  100,
-  100,
-  100,
-  100,
-  "./assets/images/Gallery Images/Renders/Random2.png"
-);
+let consoleEX = new ConsoleEX(false, null);
+let jsonc = new JSONC();
+const cacheKey = "profileData";
+const cached = localStorage.getItem(cacheKey);
+
+  let randNum = Math.floor(Math.random() * 10) + 1; 
+  let secret = "false";
+  consoleEX.log(randNum, "green", "log");
+  if (randNum == 1 && secret != "false") {
+    document.getElementById("profile-pic").src = "https://raw.githubusercontent.com/NovaAshwolfDev/NovaAshwolfDev.github.io/refs/heads/main/assets/images/Gallery%20Images/2D%20Art/ItsLJcool/Rare1.png"
+    document.getElementById("DisplayName").textContent = "ItsLJcool";
+    document.getElementById("Description").textContent = `👋 I’m ItsLJcool!
+I want to be a game designer / programmer.
+
+Officially in College!!
+I will no longer take DM questions about flixel.
+
+AD(h)D person, so my brain goes amen break sometimes`
+    document.body.style.backgroundImage = "https://raw.githubusercontent.com/NovaAshwolfDev/NovaAshwolfDev.github.io/refs/heads/main/assets/images/Gallery%20Images/2D%20Art/ItsLJcool/Rare1.png"
+    document.body.style.backgroundRepeat = "repeat"
+  }else{
+  jsonc.loadJsonc("https://raw.githubusercontent.com/NovaAshwolfDev/Secret-Repo/refs/heads/main/image-config.jsonc")
+  .then((data) => {
+      document.getElementById("profile-pic").src = data.profile_picture })
+  }
 let audio = new NovaAudio(
   "/assets/music/Freaking Out Alone V2.mp3",
   0,
   false,
   true
 );
-let novaKeys = new NovaKeys(); // Instantiate NovaKeys
-let consoleEX = new ConsoleEX(false, null);
-// let spr = new WebSprite(0, 0, 32, 32, "/assets/images/Gallery Images/Renders/Random1.png");
-// spr.
-// spr.image.src = "/assets/images/Gallery Images/Renders/Random1.png";
 
-// Load the sprite image
-testSpr
-  .loadImage("/assets/images/Gallery Images/Renders/Random1.png")
-  .then(() => {
-    consoleEX.logColor(`Sprite Source: ${testSpr.src}`, "yellow");
-    // context.clearRect(0, 0, canvas.width, canvas.height);
-    window.onload = () => {
-      //   testSpr._canvas = context;
-      //   testSpr.draw(context);
-      //   testSpr.draw(context, 0, 0)
-      //   canvas.style.position = "relative";
-      //   canvas.style.left = "-300px";
-      //   canvas.style.top = "-0px";
-    };
-    startLoop(); // Start the update loop after the image is loaded
-  })
-  .catch((err) => {
-    console.error("Error loading the sprite image:", err);
-  });
-
-// The update loop function
 function update() {
   if (isRunning) {
-    let body = new GayElement("body", true);
     document.addEventListener("keydown", async function (event) {
-      if (event.key.toLowerCase() === "p") {
-        // Check if the 'P' key is pressed (case-insensitive)
-        console.log("Loop started");
-      }
-      if (event.key.toLowerCase() === "b") {
-        // context.clearRect(0, 0, canvas.width, canvas.height);
-        // testSpr.drawImage(context)
-        // testSpr.setPos(100, 100)
-        // stopLoop();
-        // console.log(`Loop stopped`);
-      }
       if (event.key.toLowerCase() === "h") {
         audio.play(false, 1);
         console.log(`Audio Volume ${audio._audioElement.volume}`);
       } else if (event.key === "l") {
+        consoleEX.log("Testing Logging", "255, 128, 0", "log");
         audio._audioElement.volume = 0;
         console.log(`Audio Volume ${audio._audioElement.volume}`);
       } else if (event.key === "t") {
         audio._audioElement.volume = 1;
       }
     });
-    // setTimeout(console.log(`Audio Volume ${audio.volume}`), 0.00001);
-    // Request the next animation frame
     requestAnimationFrame(update);
-    // console.log(`Audio Position ${Number(audio._audioElement.currentTime)}`);
-    // setTimeout(stopLoop, 8);
-    // console.log(`Current Audio Volume: ${audio.volume}`);
-    // setTimeout(requestAnimationFrame(update), 0.001);
   }
 }
 

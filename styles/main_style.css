@@ -14,16 +14,26 @@
 }
 /* ^^ IDK why i need this many font's here but anyways ^^ */
 
-body, html {
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-family: "Boston", sans-serif;
+  display: flex;
+  flex-direction: column; /* Stack things vertically */
+  align-items: center; /* Horizontally center */
+  background: linear-gradient(#fcebcc, #edab56);
+  margin: 0;
+}
+
+.foreground {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Boston', sans-serif;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
-    background: linear-gradient(#fcebcc, #edab56);
+    background-image: url("../assets/images/Backgrounds/Foreground.png") no-repeat center center fixed;
 }
 
 /* Card Styles */
@@ -92,17 +102,19 @@ ul {
     border: 10px;
   }
 /* Navbar Styling */
+
 .navbar {
+    z-index: 1000;
     width: 1560px;
     height: 100px;
     position: sticky;
-    /* top: -5000px; */
+
     left: 0px;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     margin: 50px;
-    border-radius: 25px; /* Rounded edges similar to the one in your image */
+    border-radius: 25px; 
   }
   
   .inner-rect {
@@ -112,11 +124,10 @@ ul {
     left: 0px;
     border-radius: 25px;
     padding: 18px 120px;
-    flex-wrap: wrap; /* Allows the items to wrap if the container width is too small */
-    /* text-align: center; */
+    flex-wrap: wrap; 
     color: white;
-    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); */
     margin: 35px;
+    z-index: 10000;
   }
   
   .nav-links {
@@ -144,4 +155,11 @@ header {
     display: flex;
     justify-content: center;
     padding: 20px;
+}
+img[data-jsonc] {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+img[data-jsonc].loaded {
+  opacity: 1;
 }

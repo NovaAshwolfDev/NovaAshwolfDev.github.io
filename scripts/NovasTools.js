@@ -1,6 +1,6 @@
 // NovasTools.js
 import exifr from "./node_modules/exifr/dist/full.esm.js";
-
+import { parse } from "https://esm.sh/jsonc-parser";
 /**
  * Used for setting credit's text div
  *
@@ -154,111 +154,73 @@ export class NovaKeys {
   }
 }
 
-export class DiscordPFP {
-  constructor(clientId, redirectUri, scope = "identify") {
-    this.clientId = clientId; // Your Discord application's client ID
-    this.redirectUri = redirectUri; // The URI where users will be redirected after authentication
-    this.scope = scope; // Scopes for the data you want to access (e.g., "identify" for basic profile info)
-  }
-
-  // Step 1: Redirect to Discord's OAuth2 authorization URL
-  redirectToDiscordAuth() {
-    const authUrl = `https://discord.com/oauth2/authorize?client_id=${this.clientId}&redirect_uri=${encodeURIComponent(this.redirectUri)}&response_type=code&scope=${this.scope}`;
-    window.location.href = authUrl; // Redirect the user to Discord for authorization
-  }
-
-  // Step 2: Handle the callback after user authorization
-  async handleOAuthCallback() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code'); // Get the authorization code from the URL
-
-    if (code) {
-      const token = await this.exchangeCodeForToken(code); // Exchange code for token
-      if (token) {
-        await this.fetchAvatar(token); // Fetch the avatar with the access token
-      }
-    }
-  }
-
-  // Step 3: Exchange authorization code for an access token
-  async exchangeCodeForToken(code) {
-    const tokenUrl = "https://discord.com/api/v10/oauth2/token";
-    const body = new URLSearchParams({
-      client_id: this.clientId,
-      client_secret: "YOUR_CLIENT_SECRET", // Replace with your client secret
-      code: code,
-      grant_type: "authorization_code",
-      redirect_uri: this.redirectUri,
-      scope: this.scope,
-    });
-
-    try {
-      const response = await fetch(tokenUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: body.toString(),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to exchange code for token");
-      }
-
-      const data = await response.json();
-      return data.access_token; // Return the access token
-    } catch (error) {
-      console.error("Error exchanging code for token:", error);
-      alert("Failed to authenticate with Discord.");
-    }
-  }
-
-  // Step 4: Fetch user data (including avatar) using the access token
-  async fetchAvatar(token) {
-    try {
-      const response = await fetch("https://discord.com/api/v10/users/@me", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch user data");
-      }
-
-      const userData = await response.json();
-      const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png?size=256`;
-
-      // Apply it to the image element (make sure there's an element with id="avatar" in your HTML)
-      document.getElementById('avatar').src = avatarUrl;
-    } catch (error) {
-      console.error("Error fetching avatar:", error);
-      alert("Failed to fetch avatar.");
-    }
-  }
-}
-
 /**
  * Extended Functionality for Console that adds colorful console messages
- * Credits: **[Shane](https://stackoverflow.com/users/702664/shane) | [Nova](https://github.com/NovaTheFurryDev/)**
+ * Credits: **[Shane](https://stackoverflow.com/users/702664/shane) | [Milo](https://github.com/NovaAshwolfDev/)**
  * @class ConsoleEX
  * @constructor ConsoleEX(msg, color)
  * @param {String} msg The Message you want to log.
  * @param {String} color The Color you want the log to be.
  */
 export class ConsoleEX {
-    constructor(globalColor = false, curColor) {
-        this._globalColor = globalColor;
-        this.curColor = curColor;
-    }
+  constructor(globalColor = false, curColor) {
+    this._globalColor = globalColor;
+    this.curColor = curColor;
+  }
+  log(msg, color, method = "log") {
+    if (this._globalColor) color = this.curColor;
+    if (Array.isArray(color) && color.length === 3)
+      color = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+    else if (typeof color === "object" && color && "r" in color)
+      color = `rgb(${color.r}, ${color.g}, ${color.b})`;
+    else if (
+      typeof color !== "string" ||
+      (!color.startsWith("#") && !color.startsWith("rgb"))
+    )
+      color = "black";
+    console[method](`%c${msg}`, `color: ${color}; font-weight: bold;`);
+  }
 
-    log(msg, color, method) {
-        if (this._globalColor) color = this.curColor;
-        console[method](`%c${msg}`, `color: ${color}; font-weight: bold;`);
-    }
+  logColor(msg, color) {
+    this.log(msg, color, "log");
+  }
+  infoColor(msg, color) {
+    this.log(msg, color, "info");
+  }
+  warnColor(msg, color) {
+    this.log(msg, color, "warn");
+  }
+  errorColor(msg, color) {
+    this.log(msg, color, "error");
+  }
+}
+export class JSONC {
+  constructor() {
+    this.cache = new Map();
+  }
 
-    logColor(msg, color) { this.log(msg, color, 'log'); }
-    infoColor(msg, color) { this.log(msg, color, 'info'); }
-    warnColor(msg, color) { this.log(msg, color, 'warn'); }
-    errorColor(msg, color) { this.log(msg, color, 'error'); }
+  async loadJsonc(url) {
+    const cached = this.cache.get(url);
+    const headers = cached?.etag ? { 'If-None-Match': cached.etag } : {};
+    const res = await fetch(url, { headers });
+
+    if (res.status === 304 && cached) return cached.data;
+
+    const text = await res.text();
+    const data = parse(text);
+    this.cache.set(url, { etag: res.headers.get('ETag'), data });
+    return data;
+  }
+}
+export class Time {
+  constructor() {
+  }
+
+  wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+    }
+  }
 }
