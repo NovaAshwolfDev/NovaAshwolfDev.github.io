@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milo Ashwolf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <opengraph-image src="https://cdn.miloashwolf.gay/Milo%20Icon%20Discord_Low.png" alt="Milo Ashwolf"></opengraph-image>
+  <opengraph-description>Software engineer, shader programmer, club A/V nerd and professional gay furry.</opengraph-description>
+  <opengraph-title>Milo Ashwolf</opengraph-title>
+  <opengraph-url>https://miloashwolf.gay</opengraph-url>
+  <opengraph-type>website</opengraph-type>
+  <opengraph-image-alt>Milo Ashwolf</opengraph-image-alt>
+  <opengraph-locale>en_US</opengraph-locale>
+  <opengraph-site-name>Milo Ashwolf</opengraph-site-name>
+</head>
+<body>
+  <div class="bg">
+    <div class="site-wrap">
+
+      <nav role="navigation" aria-label="Site navigation">
+        <button class="active" data-page="home" onclick="showPage('home')">Home</button>
+        <button data-page="about" onclick="showPage('about')">About</button>
+        <button data-page="gallery" onclick="showPage('gallery')">Gallery</button>
+        <button onclick="sendToPage('https://packages.miloashwolf.gay')">Packages</button>
+      </nav>
+
+      <div id="home" class="page visible" role="main">
+        <div class="card home-card">
+          <div class="pfp-wrap">
+            <img id="home-pfp" src="https://cdn.miloashwolf.gay/Milo%20Icon%20Discord_Low.png" alt="Profile Picture" />
+          </div>
+          <h1 class="home-name">Milo</h1>
+          <p class="home-tagline">
+            Software engineer, shader programmer,<br>
+            club A/V nerd and professional gay furry.
+          </p>
+          <p class="home-quote" id="home-quote"></p>
+          <div class="social-row" aria-label="Social links">
+            <a href="https://github.com/NovaAshwolfDev" target="_blank" rel="noopener" aria-label="GitHub">
+              <img class="social-icon" src="./assets/images/icons/github.svg" alt="" />
+            </a>
+            <a href="https://www.youtube.com/@NovaAshwolf" target="_blank" rel="noopener" aria-label="YouTube">
+              <img class="social-icon" src="./assets/images/icons/youtube.svg" alt="" />
+            </a>
+            <a href="https://shader.miloashwolf.gay" target="_blank" rel="noopener" aria-label="Shader Store">
+              <img class="social-icon" src="./assets/images/icons/store.svg"/>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div id="about" class="page" role="main">
+        <div class="card">
+          <div class="about-inner">
+            <div class="about-portrait">
+              <img src="https://cdn.miloashwolf.gay/FindingTheLight.png" alt="Nova Ashwolf art" />
+              <p class="about-portrait-credit">Art by YahyaModder</p>
+            </div>
+            <div class="about-text">
+              <h2>About Me</h2>
+              <p>
+                Hey, I'm <strong>Milo</strong> - also known as Milo Ashwolf or just Nova. I'm a 19 year old software engineer
+                based in Australia, writing shaders, building VRChat worlds, and making club A/V rigs
+                do things they probably weren't designed to do.
+              </p>
+              <p>
+                I make and sell shaders at
+                <a href="https://shader.miloashwolf.gay/" target="_blank" rel="noopener"><strong>shader.miloashwolf.gay</strong></a>, and I've run lighting for my own sets at Stage Flight. When I'm not in a code editor I'm probably in VRChat or messing around in Unity.
+              </p>
+              <div class="about-tags">
+                <span class="tag">Software Dev</span>
+                <span class="tag">VRChat</span>
+                <span class="tag">HLSL / Shaders</span>
+                <span class="tag">Unity</span>
+                <span class="tag">Godot</span>
+                <span class="tag">Blender</span>
+                <span class="tag">Club A/V</span>
+                <span class="tag">DMX / QLC+</span>
+                <span class="tag">Furry</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="gallery" class="page" role="main">
+        <div class="card">
+          <h2 class="gallery-header">Gallery</h2>
+          <div class="carousel-wrap">
+            <div class="gallery-loading" id="gallery-loading">Loading images...</div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="prevBtn" data-lucide="arrow-left" aria-label="Previous image"></button>
+            <span class="carousel-counter" id="gallery-counter"></span>
+            <button class="carousel-btn" id="nextBtn" data-lucide="arrow-right" aria-label="Next image"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./scripts/Main.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
