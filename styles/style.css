@@ -396,4 +396,14 @@
         .home-name {
             font-size: 2.6rem;
         }
+        .about-portrait {
+            width: 100%;
+        }
+
+        .about-portrait img {
+            width: 160px;
+            height: auto;
+            margin: 0 auto;
+        }
     }
+    
