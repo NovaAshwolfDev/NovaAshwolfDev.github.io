@@ -13,6 +13,30 @@ function setDynamicYear() {
     if (yearSpan) yearSpan.innerText = new Date().getFullYear();
 }
 
+// Source - https://stackoverflow.com/a/4076440
+// Posted by Matt
+// Retrieved 2026-08-29, License - CC BY-SA 2.5
+
+function calculateAge (birthDate, otherDate) {
+    birthDate = birthDate;
+    otherDate = otherDate;
+
+    var years = (otherDate.getFullYear() - birthDate.getFullYear());
+
+    if (otherDate.getMonth() < birthDate.getMonth() || 
+        otherDate.getMonth() == birthDate.getMonth() && otherDate.getDate() < birthDate.getDate()) {
+        years--;
+    }
+
+    return years;
+}
+
+function setDynamicAge(){
+    const age = calculateAge(new Date(2006, 7, 29), new Date());
+    const ageSpan = document.getElementById('age');
+    if (ageSpan) ageSpan.innerText = age;
+}
+
 let banners = [];
 let currentIdx = 0;
 let autoTimer;
@@ -122,4 +146,5 @@ window.sendToPage = sendToPage;
 document.addEventListener('DOMContentLoaded', () => {
     randomQuote();
     setDynamicYear();
+    setDynamicAge();
 });
